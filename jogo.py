@@ -1,10 +1,10 @@
 """
 Insper
-Authors: Diogo Nobre de Araujo Cintra, Luís Eduardo Satou Ferreira Pinheiro and Laura Batman Perim
-Graduating in Mechanical Engineering, Mechatronical Engineering and Computer Engineering
-Email: diogonac@al.insper.edu.br
-Email: luisesfp@al.insper.edu.br
+Authors: Gianluca Lazzaris Giudici, Laura Batman Perim & Pietro Abe Seixas
+Graduating in Computer Engineering
+Email: gianlucalg@al.insper.edu.br
 Email: laurabp@al.insper.edu.br
+Email: pietroas@al.insper.edu.br
 """
 
 import pygame as pg
