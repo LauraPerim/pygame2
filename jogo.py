@@ -1,9 +1,7 @@
+# -*- coding: utf-8 -*-
 """
-Insper
-Authors: Laura Batman Perim, Pietro, Gian 
-Email: laurabp@al.insper.edu.br
+Created on Wed May 13 16:11:08 2020
+
+@author: laura
 """
-import pygame as pg
-from os import path
-import random
-from os import path
+
