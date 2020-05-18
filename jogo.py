@@ -1,9 +1,15 @@
 """
 Insper
+<<<<<<< HEAD
 Authors: Pietro, Gianluca, and Laura Batman Perim
 Email: 
 Email:
+=======
+Authors: Gianluca Lazzaris Giudici, Laura Batman Perim & Pietro Abe Seixas
+Graduating in Computer Engineering
+Email: gianlucalg@al.insper.edu.br
 Email: laurabp@al.insper.edu.br
+Email: pietroas@al.insper.edu.br
 """
 
 import pygame 
