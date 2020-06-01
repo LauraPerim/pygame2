@@ -48,9 +48,9 @@ class circulo(pygame.sprite.Sprite):
          self.rect = self.image.get_rect()
         
         # Sorteia um lugar inicial em x
-         self.rect.x = 100
+         self.rect.x = 200
         # Sorteia um lugar inicial em y
-         self.rect.y =100 
+         self.rect.y =150
 '''
 x,y=pygame.mouse.get_pos()
 x-=mouse_cursor.get_width()/2
