@@ -35,8 +35,29 @@ class Player(pygame.sprite.Sprite):
          self.rect.x = 100
         # Sorteia um lugar inicial em y
          self.rect.y =100 
-       
          
+class circulo(pygame.sprite.Sprite):
+     def __init__ (self):
+         pygame.sprite.Sprite.__init__(self)
+         img_0 = pygame.image.load( "circulo_0.png")
+         self.image=img_0
+         self.image = pygame.transform.scale(img_0, (70, 70))
+         #self.image.set_colorkey(BLACK)
+        
+        # Detalhes sobre o posicionamento.
+         self.rect = self.image.get_rect()
+        
+        # Sorteia um lugar inicial em x
+         self.rect.x = 100
+        # Sorteia um lugar inicial em y
+         self.rect.y =100 
+'''
+x,y=pygame.mouse.get_pos()
+x-=mouse_cursor.get_width()/2
+y-=mouse_cursor.get_height()/2
+screen.blit(mouse_cursor,(x,y))
+       
+ '''       
          
 
 pygame.init()
@@ -57,6 +78,10 @@ bg=pygame.transform.scale(bg,(500,400))
 player=Player()
 mobs = pygame.sprite.Group()
 mobs.add(player)
+
+Circulo=circulo()
+cir=pygame.sprite.Group()
+cir.add(Circulo)
 # ===== Loop principal =====
 while game:
     # ----- Trata eventos
@@ -70,6 +95,7 @@ while game:
     window.blit(bg, (0, 0))
 
     mobs.draw(window)
+    cir.draw(window)
     # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
 
