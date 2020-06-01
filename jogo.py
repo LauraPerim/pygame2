@@ -17,9 +17,31 @@ from os import path
 import random
 from os import path
 
+BLACK = (0, 0, 0)
 
+
+class Player(pygame.sprite.Sprite):
+     def __init__ (self):
+         pygame.sprite.Sprite.__init__(self)
+         img_x = pygame.image.load( "img_x.png")
+         self.image=img_x
+         self.image = pygame.transform.scale(img_x, (100, 100))
+         #self.image.set_colorkey(BLACK)
+        
+        # Detalhes sobre o posicionamento.
+         self.rect = self.image.get_rect()
+        
+        # Sorteia um lugar inicial em x
+         self.rect.x = 100
+        # Sorteia um lugar inicial em y
+         self.rect.y =100 
+       
+         
+         
 
 pygame.init()
+
+WIDTH=500
 
 # ----- Gera tela principal
 window = pygame.display.set_mode((500, 400))
@@ -28,7 +50,13 @@ pygame.display.set_caption('Hello World!')
 # ----- Inicia estruturas de dados
 game = True
 bg = pygame.image.load("imagem_fundo.png")
+bg=pygame.transform.scale(bg,(500,400))
 
+
+
+player=Player()
+mobs = pygame.sprite.Group()
+mobs.add(player)
 # ===== Loop principal =====
 while game:
     # ----- Trata eventos
@@ -39,7 +67,9 @@ while game:
 
     # ----- Gera saídas
     window.fill((255, 255, 255))  # Preenche com a cor branca
-    window.blit(bg, (10, 10))
+    window.blit(bg, (0, 0))
+
+    mobs.draw(window)
     # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
 
