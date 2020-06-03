@@ -40,7 +40,7 @@ class circulo(pygame.sprite.Sprite): #0
          pygame.sprite.Sprite.__init__(self)
          img_0 = pygame.image.load( "circulo_0.png")
          self.image=img_0
-         self.image = pygame.transform.scale(img_0, (70, 70))
+         self.image = pygame.transform.scale(img_0, (100, 70))
          #self.image.set_colorkey(BLACK)
         
         # Detalhes sobre o posicionamento.
