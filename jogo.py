@@ -193,12 +193,12 @@ while game:
     # ----- Gera saídas
     window.fill((255, 255, 255))  
     window.blit(bg, (0, 0))
-    if jogX== True:
+    if jogX== True:  
         text = font.render("X", True, (0, 0, 255))
     else:
         text = font.render("0", True, (0, 0, 255))
     window.blit(text,(0,0))
-    pygame.draw.rect(window,(255,0,0),ret3)
+    #pygame.draw.rect(window,(255,0,0),ret3)  #desenha os retangulos
    
     mobs.draw(window)  #X
     cir.draw(window)  #0
