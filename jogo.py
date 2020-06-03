@@ -74,8 +74,8 @@ mobs = pygame.sprite.Group()
 
 
 ret1=pygame.Rect(0,0,187,117)
-ret2=pygame.Rect(0,123,140,130)
-ret3=pygame.Rect(0,265,130,100)
+ret2=pygame.Rect(0,123,180,130)
+ret3=pygame.Rect(0,265,180,100)
 ret4=pygame.Rect(200,0,130,100)
 ret5=pygame.Rect(200,123,128,132)
 ret6=pygame.Rect(200,265,130,100)
@@ -198,7 +198,7 @@ while game:
     else:
         text = font.render("0", True, (0, 0, 255))
     window.blit(text,(0,0))
-  # pygame.draw.rect(window,(255,0,0),ret9)retangulos
+    pygame.draw.rect(window,(255,0,0),ret3)
    
     mobs.draw(window)  #X
     cir.draw(window)  #0
