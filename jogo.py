@@ -25,7 +25,7 @@ class Player(pygame.sprite.Sprite): # X
          pygame.sprite.Sprite.__init__(self)
          img_x = pygame.image.load( "img_x.png")
          self.image=img_x
-         self.image = pygame.transform.scale(img_x, (100, 100))
+         self.image = pygame.transform.scale(img_x, (140, 140))
          #self.image.set_colorkey(BLACK)
         
         # Detalhes sobre o posicionamento.
@@ -40,7 +40,7 @@ class circulo(pygame.sprite.Sprite): #0
          pygame.sprite.Sprite.__init__(self)
          img_0 = pygame.image.load( "circulo_0.png")
          self.image=img_0
-         self.image = pygame.transform.scale(img_0, (100, 70))
+         self.image = pygame.transform.scale(img_0, (120, 90))
          #self.image.set_colorkey(BLACK)
         
         # Detalhes sobre o posicionamento.
@@ -48,6 +48,21 @@ class circulo(pygame.sprite.Sprite): #0
         
         # Sorteia um lugar inicial em y
          self.rect.center=center
+'''       
+def verifica_vencedor(coordenadas):
+
+    return((ret[1] ==  ret[2] == ret[3])or
+          (ret[1] ==  ret[5] ==ret[9])or
+          (ret[7] ==  ret[5] ==ret[3])or
+          (ret[3] ==  ret[6] ==ret[9])or
+          (ret[2] ==  ret[5] ==ret[8])or
+          (ret[1] ==  ret[4] ==ret[7])or
+          (ret[4] ==  ret[5] ==ret[6])or
+          (ret[7] ==  ret[8] ==ret[9]))
+'''
+         
+
+        
          
          
          
@@ -70,16 +85,16 @@ bg=pygame.transform.scale(bg,(500,400))
 
 mobs = pygame.sprite.Group()
 
-#dfrnvjnljfnj
 
 
-ret1=pygame.Rect(0,0,187,117)
-ret2=pygame.Rect(0,123,180,130)
-ret3=pygame.Rect(0,265,180,100)
-ret4=pygame.Rect(200,0,130,100)
-ret5=pygame.Rect(200,123,128,132)
+
+ret1=pygame.Rect(40,0,187,117)
+ret2=pygame.Rect(40,123,150,130)
+ret3=pygame.Rect(40,265,180,100)
+ret4=pygame.Rect(200,0,130,117)
+ret5=pygame.Rect(200,123,112,132)
 ret6=pygame.Rect(200,265,130,100)
-ret7=pygame.Rect(341,0,187,117)
+ret7=pygame.Rect(341,0,120,100)
 ret8=pygame.Rect(341,123,140,130)
 ret9=pygame.Rect(340,265,130,100)
                  
