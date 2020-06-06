@@ -9,6 +9,7 @@ import pygame
 from os import path
 import random
 from os import path
+from pygame.locals import MOUSEBUTTONDOWN, Rect, QUIT
 
 BLACK = (0, 0, 0)
 
@@ -41,18 +42,19 @@ class circulo(pygame.sprite.Sprite): #0
         
         # Sorteia um lugar inicial em y
          self.rect.center=center
-'''       
-def verifica_vencedor(coordenadas):
+       
+def verifica_vencedor():
 
-    return((ret[1] ==  ret[2] == ret[3])or
-          (ret[1] ==  ret[5] ==ret[9])or
-          (ret[7] ==  ret[5] ==ret[3])or
-          (ret[3] ==  ret[6] ==ret[9])or
-          (ret[2] ==  ret[5] ==ret[8])or
-          (ret[1] ==  ret[4] ==ret[7])or
-          (ret[4] ==  ret[5] ==ret[6])or
-          (ret[7] ==  ret[8] ==ret[9]))
-'''
+    if ((ret1 ==  ret2 == ret3)or
+          (ret1 ==  ret5 == ret9)or
+          (ret7 ==  ret5 == ret3)or
+          (ret3 ==  ret6 == ret9)or
+          (ret2 ==  ret5 == ret8)or
+          (ret1 ==  ret4 == ret7)or
+          (ret4 ==  ret5 == ret6)or
+          (ret7 ==  ret8 == ret9)):
+        Jogx = False
+
          
 
         
@@ -195,42 +197,9 @@ while game:
                 
                 
             print (event.pos)
-       
-def verifica_vencedor(coordenadas):
 
-    return((tabuleiro[0] == coordenadas and tabuleiro[1] == coordenadas and tabuleiro[2] == coordenadas) or
-        (tabuleiro[3] == coordenadas and tabuleiro[4] == coordenadas and tabuleiro[5] == coordenadas) or
-        (tabuleiro[6] == coordenadas and tabuleiro[7] == coordenadas and tabuleiro[8] == coordenadas) or
-        (tabuleiro[0] == coordenadas and tabuleiro[3] == coordenadas and tabuleiro[6] == coordenadas) or
-        (tabuleiro[1] == coordenadas and tabuleiro[4] == coordenadas and tabuleiro[7] == coordenadas) or
-        (tabuleiro[2] == coordenadas and tabuleiro[5] == coordenadas and tabuleiro[8] == coordenadas) or
-        (tabuleiro[0] == coordenadas and tabuleiro[4] == coordenadas and tabuleiro[8] == coordenadas) or
-        (tabuleiro[2] == coordenadas and tabuleiro[4] == coordenadas and tabuleiro[6] == coordenadas))
-
-
-
-def escreve_na_tela(vencedor):
-
-    escrito = "PLAYER {0} WINS".format(vencedor)
-    fonte = pygame.font.SysFont("arial", 70)
+def vencedor():
     
-    if vencedor == "TIE":
-        tie = fonte.render('DEU VELHA', True, (0, 255, 0), 0)
-        tela.blit(tie, (115, 265))
-    
-    else:
-        tie = fonte.render(escrito, True, (0, 255, 0), 0)
-        tela.blit(tie, (0, 265))
-
-
-def recomeca_jogo():
-    global espaco, vez, escolhe, estado, tabuleiro
-
-    estado = "jogando"
-    vez = "jogador_1"
-    escolhe = "X"
-    espaco = 0
-    tabuleiro = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
     tela.fill(0)        
 
