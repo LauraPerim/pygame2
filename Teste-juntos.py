@@ -1,11 +1,8 @@
+# -*- coding: utf-8 -*-
 """
-Insper
-<<<<<<< HEAD
-Authors: Gianluca Lazzaris Giudici, Laura Batman Perim & Pietro Abe Seixas
-Graduating in Computer Engineering
-Email: gianlucalg@al.insper.edu.br
-Email: laurabp@al.insper.edu.br
-Email: pietroas@al.insper.edu.br
+Created on Sat Jun  6 11:06:08 2020
+
+@author: felip
 """
 
 import pygame 
@@ -199,7 +196,43 @@ while game:
                 
             print (event.pos)
        
-            
+def verifica_vencedor(coordenadas):
+
+    return((tabuleiro[0] == coordenadas and tabuleiro[1] == coordenadas and tabuleiro[2] == coordenadas) or
+        (tabuleiro[3] == coordenadas and tabuleiro[4] == coordenadas and tabuleiro[5] == coordenadas) or
+        (tabuleiro[6] == coordenadas and tabuleiro[7] == coordenadas and tabuleiro[8] == coordenadas) or
+        (tabuleiro[0] == coordenadas and tabuleiro[3] == coordenadas and tabuleiro[6] == coordenadas) or
+        (tabuleiro[1] == coordenadas and tabuleiro[4] == coordenadas and tabuleiro[7] == coordenadas) or
+        (tabuleiro[2] == coordenadas and tabuleiro[5] == coordenadas and tabuleiro[8] == coordenadas) or
+        (tabuleiro[0] == coordenadas and tabuleiro[4] == coordenadas and tabuleiro[8] == coordenadas) or
+        (tabuleiro[2] == coordenadas and tabuleiro[4] == coordenadas and tabuleiro[6] == coordenadas))
+
+
+
+def escreve_na_tela(vencedor):
+
+    escrito = "PLAYER {0} WINS".format(vencedor)
+    fonte = pygame.font.SysFont("arial", 70)
+    
+    if vencedor == "TIE":
+        tie = fonte.render('DEU VELHA', True, (0, 255, 0), 0)
+        tela.blit(tie, (115, 265))
+    
+    else:
+        tie = fonte.render(escrito, True, (0, 255, 0), 0)
+        tela.blit(tie, (0, 265))
+
+
+def recomeca_jogo():
+    global espaco, vez, escolhe, estado, tabuleiro
+
+    estado = "jogando"
+    vez = "jogador_1"
+    escolhe = "X"
+    espaco = 0
+    tabuleiro = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
+    tela.fill(0)        
 
     # ----- Gera saídas
     window.fill((255, 255, 255))  
@@ -218,7 +251,3 @@ while game:
 
 # ===== Finalização =====
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
-
-
-
-
