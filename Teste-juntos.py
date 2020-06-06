@@ -43,19 +43,44 @@ class circulo(pygame.sprite.Sprite): #0
         # Sorteia um lugar inicial em y
          self.rect.center=center
        
-def verifica_vencedor():
+def verifica_vencedor(c):
 
-    if ((ret1 ==  ret2 == ret3)or
-          (ret1 ==  ret5 == ret9)or
-          (ret7 ==  ret5 == ret3)or
-          (ret3 ==  ret6 == ret9)or
-          (ret2 ==  ret5 == ret8)or
-          (ret1 ==  ret4 == ret7)or
-          (ret4 ==  ret5 == ret6)or
-          (ret7 ==  ret8 == ret9)):
-        Jogx = False
+    return((ret1 == c and ret2 == c and ret3 == c)or
+          (ret1 == c and ret5 == c and ret9 == c)or
+          (ret7 == c and ret5 == c and ret3 == c)or
+          (ret3 == c and ret6 == c and ret9 == c)or
+          (ret2 == c and ret5 == c and ret8 == c)or
+          (ret1 == c and ret4 == c and ret7 == c)or
+          (ret4 == c and ret5 == c and ret6 == c)or
+          (ret7 == c and ret8 == c and ret9 == c))
 
-         
+
+def escreve_na_tela(vencedor):
+
+    escrito = "PLAYER {0} WINS".format(vencedor)
+    fonte = pygame.font.SysFont("arial", 70)
+    
+    if vencedor == "TIE":
+        tie = fonte.render('DEU VELHA', True, (0, 255, 0), 0)
+        window.blit(tie, (115, 265))
+        jogX = False
+    
+    else:
+        tie = fonte.render(escrito, True, (0, 255, 0), 0)
+        window.blit(tie, (0, 265))
+        jogX = False
+"""
+def recomecar():
+    global espaco, vez, escolhe, estado, tabuleiro
+
+    estado = "jogando"
+    vez = "jogador_1"
+    escolhe = "X"
+    espaco = 0
+    tabuleiro = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
+    window.fill(0)
+"         
 
         
          
