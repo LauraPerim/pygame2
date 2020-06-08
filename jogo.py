@@ -195,7 +195,16 @@ if(matriz[0][0] == "X" and matriz[1][1] == "X" and matriz[2][2] == "X"):
 if(matriz[0][2] == "X" and matriz[1][1] == "X" and matriz[2][0] == "X"):
     print("GANHOU em diag 2")
 
-             
+for i in range(3):
+ if(matriz[i][0] == "O" and matriz[i][1] == "O" and matriz[i][2] == "O"):
+     print("PERDEU em linha {}".format(i))
+for i in range(3):
+ if(matriz[0][1] == "O" and matriz[1][i] == "O" and matriz[2][i] == "O"):
+     print("PERDEU em coluna{}".format(i))
+if(matriz[0][0] == "O" and matriz[1][1] == "O" and matriz[2][2] == "O"):
+    print("PERDEU em diag 1")
+if(matriz[0][2] == "O" and matriz[1][1] == "O" and matriz[2][0] == "O"):
+    print("PERDEU em diag 2")             
             
                     
        
