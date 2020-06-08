@@ -8,19 +8,17 @@ Created on Sat Jun  6 11:06:08 2020
 import pygame 
 from os import path
 import random
-from os import path
-from pygame.locals import MOUSEBUTTONDOWN, Rect, QUIT
 
 BLACK = (0, 0, 0)
 
-
+#criando a classe do x
 class Player(pygame.sprite.Sprite): # X
      def __init__ (self,center):
          pygame.sprite.Sprite.__init__(self)
          img_x = pygame.image.load( "img_x.png")
          self.image=img_x
          self.image = pygame.transform.scale(img_x, (140, 140))
-         #self.image.set_colorkey(BLACK)
+       
         
         # Detalhes sobre o posicionamento.
          self.rect = self.image.get_rect()
@@ -28,87 +26,44 @@ class Player(pygame.sprite.Sprite): # X
         #  lugar x
          self.rect.center = center
 
-         
+#criando a classe do circulo         
 class circulo(pygame.sprite.Sprite): #0
      def __init__ (self,center):
          pygame.sprite.Sprite.__init__(self)
          img_0 = pygame.image.load( "circulo_0.png")
          self.image=img_0
          self.image = pygame.transform.scale(img_0, (120, 90))
-         #self.image.set_colorkey(BLACK)
+     
         
         # Detalhes sobre o posicionamento.
          self.rect = self.image.get_rect()
         
         # Sorteia um lugar inicial em y
          self.rect.center=center
-       
-def verifica_vencedor(c):
-
-    return((ret1 == c and ret2 == c and ret3 == c)or
-          (ret1 == c and ret5 == c and ret9 == c)or
-          (ret7 == c and ret5 == c and ret3 == c)or
-          (ret3 == c and ret6 == c and ret9 == c)or
-          (ret2 == c and ret5 == c and ret8 == c)or
-          (ret1 == c and ret4 == c and ret7 == c)or
-          (ret4 == c and ret5 == c and ret6 == c)or
-          (ret7 == c and ret8 == c and ret9 == c))
-
-
-def escreve_na_tela(vencedor):
-
-    escrito = "PLAYER {0} WINS".format(vencedor)
-    fonte = pygame.font.SysFont("arial", 70)
-    
-    if vencedor == "TIE":
-        tie = fonte.render('DEU VELHA', True, (0, 255, 0), 0)
-        window.blit(tie, (115, 265))
-        jogX = False
-    
-    else:
-        tie = fonte.render(escrito, True, (0, 255, 0), 0)
-        window.blit(tie, (0, 265))
-        jogX = False
-"""
-def recomecar():
-    global espaco, vez, escolhe, estado, tabuleiro
-
-    estado = "jogando"
-    vez = "jogador_1"
-    escolhe = "X"
-    espaco = 0
-    tabuleiro = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-
-    window.fill(0)
-"""       
-
-        
-         
-         
+   
          
 
          
-
+#iniciando pygame
 pygame.init()
 
-WIDTH=500
 
-# ----- Gera tela principal
-window = pygame.display.set_mode((500, 400))
-pygame.display.set_caption('Hello World!')
+# Gera tela principal
+window = pygame.display.set_mode((500, 400)) #altura e largura
+pygame.display.set_caption('jogo da velha')
 
 # ----- Inicia estruturas de dados
-game = True
-bg = pygame.image.load("imagem_fundo.png")
-bg=pygame.transform.scale(bg,(500,400))
+game = True #continuar o jogo enquanto o pygame for True
+bg = pygame.image.load("imagem_fundo.png") #imagem de fundo
+bg=pygame.transform.scale(bg,(500,400)) #posicionamento imagem de fundo
 
 
-mobs = pygame.sprite.Group()
+mobs = pygame.sprite.Group() #classe dos X
 
 
 
-
-ret1=pygame.Rect(40,0,187,117)
+#fazendo retangulos para definir o jogo
+ret1=pygame.Rect(40,0,180,117)
 ret2=pygame.Rect(40,123,150,130)
 ret3=pygame.Rect(40,265,180,100)
 ret4=pygame.Rect(200,0,130,117)
@@ -117,18 +72,20 @@ ret6=pygame.Rect(200,265,130,100)
 ret7=pygame.Rect(341,0,120,100)
 ret8=pygame.Rect(341,123,140,130)
 ret9=pygame.Rect(340,265,130,100)
+
+
                  
-Circulo=circulo(ret1.center)
-cir=pygame.sprite.Group()
-cir.add(Circulo)
+
+cir=pygame.sprite.Group() #definindo grupo circulos
 
 
 
-font = pygame.font.SysFont(None, 48)
+
+font = pygame.font.SysFont(None, 48) #texto
 text = font.render("teste", True, (0, 0, 255))
 
 
-jogX=True
+jogX=True  #enquanto o jogador for True
 # ===== Loop principal =====
 while game:
     
@@ -215,18 +172,45 @@ while game:
                     player=circulo(ret9.center)
                     jogX=True
                 mobs.add(player)#SE COLIDIR COM RET 2
-            
-                
-                
-                
-                
-                
-            print (event.pos)
-
-def vencedor():
+           
+    matriz = [ ["", "", ""], ["", "", ""], ["", "", ""]]
+     
+    matriz[1][1] = "X"
+    matriz[1][2] = "O"
+    matriz[0][1] = "X"
+    matriz[2][1] = "X"
+     
+    #print(matriz)
     
-
-    tela.fill(0)        
+    for i in range(3):
+     if(matriz[i][0] == "X" and matriz[i][1] == "X" and matriz[i][2] == "X"):
+         print("GANHOU em linha {}".format(i))
+    for i in range(3):
+     if(matriz[0][1] == "X" and matriz[1][i] == "X" and matriz[2][i] == "X"):
+         print("GANHOU em coluna{}".format(i))
+    if(matriz[0][0] == "X" and matriz[1][1] == "X" and matriz[2][2] == "X"):
+        print("GANHOU em diag 1")
+    if(matriz[0][2] == "X" and matriz[1][1] == "X" and matriz[2][0] == "X"):
+        print("GANHOU em diag 2")
+    
+    for i in range(3):
+     if(matriz[i][0] == "O" and matriz[i][1] == "O" and matriz[i][2] == "O"):
+         print("PERDEU em linha {}".format(i))
+    for i in range(3):
+     if(matriz[0][1] == "O" and matriz[1][i] == "O" and matriz[2][i] == "O"):
+         print("PERDEU em coluna{}".format(i))
+    if(matriz[0][0] == "O" and matriz[1][1] == "O" and matriz[2][2] == "O"):
+        print("PERDEU em diag 1")
+    if(matriz[0][2] == "O" and matriz[1][1] == "O" and matriz[2][0] == "O"):
+        print("PERDEU em diag 2")             
+            
+                    
+       
+                        
+  
+                
+               # print (event.pos)
+  
 
     # ----- Gera saídas
     window.fill((255, 255, 255))  
@@ -237,6 +221,7 @@ def vencedor():
         text = font.render("0", True, (0, 0, 255))
     window.blit(text,(0,0))
     #pygame.draw.rect(window,(255,0,0),ret3)  #desenha os retangulos
+
    
     mobs.draw(window)  #X
     cir.draw(window)  #0
@@ -245,3 +230,7 @@ def vencedor():
 
 # ===== Finalização =====
 pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
+
+
+
+
