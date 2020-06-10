@@ -10,6 +10,8 @@ Email: pietroas@al.insper.edu.br
 import pygame 
 from os import path
 import random
+from random import randint
+print(randint(0,9))
 
 BLACK = (0, 0, 0)
 
@@ -63,6 +65,28 @@ bg=pygame.transform.scale(bg,(500,400)) #posicionamento imagem de fundo
 
 mobs = pygame.sprite.Group() #classe dos X
 
+perguntas=[("Dois pais e dois filhos sentaram-se para comer ovos no café da manhã. Cada um comeu um ovo. Quanto ovos eles comeram no total?"),
+           ("Ao nascer e ao morrer sou grande, porém sou pequena no vigor da idade. Quem sou eu? "),
+           ("O que todo mundo tem, mas quando precisa vai ao mercado comprar? "),
+           ("Qual é a cidade que quando chove molha os bêbados? "),
+           ("Qual a cor do cavalo branco de Napoleão? "),
+           ("Qual é o tio da cebola? "),
+           ("O Sr. Smith tem 4 filhas. Cada uma de suas filhas tem 1 irmão. Quantos filhos Sr. Smith tem ao todo? "),
+           ("Uma mulher tem 30 reais pra dividir entre suas duas filhas, que horas são? "),
+           ("O que é que tem 3 asas, fica dentro de gaiola, mas não é ave?"),
+           ("Qual é o instrumento que não pode ser visto, não pode ser tocado, mas pode ser ouvido? "),
+           ("O que vai para cima e para baixo sem sair do lugar? "),
+           ("Eu faço a barba várias vezes ao dia, mas continuo barbudo, quem sou eu? R"),
+           ("O que tem pescoço, mas não tem cabeça"),("O que a mulher abaixa e a mulher levanta? "),
+           ("Como se chama a galinha que pulou de um prédio e ficou louca? ")]
+respostas=["3","sombra","canela","bar-sem-lona","preto","tiomate","5","15 pras 2","ventilador","a voz","escada","barbeiro","garrafa","galinha cai-pira"]
+
+a=perguntas[randint(0,14)]
+
+b=randint(0,14)
+a=perguntas[b]
+
+
 
 
 #fazendo retangulos para definir o jogo
@@ -84,7 +108,7 @@ cir=pygame.sprite.Group() #definindo grupo circulos
 
 
 
-font = pygame.font.SysFont(None, 48) #texto
+font = pygame.font.SysFont("Consolas", 48) #texto
 text = font.render("teste", True, (0, 0, 255))
 text2=font.render("0", True, (0, 0, 255))
 
@@ -101,145 +125,160 @@ while game:
         if event.type == pygame.QUIT:
             game = False
         if event.type==pygame.MOUSEBUTTONDOWN:
-            if ret1.collidepoint(event.pos):
-                if jogX:
-                    matriz[0][0]="X"
-                    player=Player(ret1.center)
-                    jogX=False
-                else: 
-                    matriz[0][0]="O"
-                    player=circulo(ret1.center)
-                    jogX=True
-                mobs.add(player)
-            if ret2.collidepoint(event.pos):
-                if jogX:
-                    matriz[1][0]="X"
-                    player=Player(ret2.center)
-                    jogX=False
-                else: 
-                    matriz[1][0]="O"
-                    player=circulo(ret2.center)
-                    jogX=True
-                mobs.add(player)
-            if ret3.collidepoint(event.pos): 
-                if jogX:
-                    matriz[2][0]="X"
-                    player=Player(ret3.center)
-                    jogX=False
-                else: 
-                    matriz[2][0]="O"
-                    player=circulo(ret3.center)
-                    jogX=True
-                mobs.add(player)
-            if ret4.collidepoint(event.pos):
-                if jogX:
-                    matriz[0][1]="X"
-                    player=Player(ret4.center)
-                    jogX=False
-                else: 
-                    matriz[0][1]="O"
-                    player=circulo(ret4.center)
-                    jogX=True
-                mobs.add(player)#SE COLIDIR COM RET 2
-            
-            if ret5.collidepoint(event.pos): 
-                if jogX:
-                    matriz[1][1]="X"
-                    player=Player(ret5.center)
-                    jogX=False
-                else: 
-                    matriz[1][1]="O"
-                    player=circulo(ret5.center)
-                    jogX=True
-                mobs.add(player)#SE COLIDIR COM RET 2
-       
-            if ret6.collidepoint(event.pos): 
-                if jogX:
-                    matriz[2][1]="X"
-                    player=Player(ret6.center)
-                    jogX=False
-                else: 
-                    matriz[2][1]="O"
-                    player=circulo(ret6.center)
-                    jogX=True
-                mobs.add(player)#SE COLIDIR COM RET 2
-             
-            if ret7.collidepoint(event.pos):
-                if jogX:
-                    matriz[0][2]="X"
-                    player=Player(ret7.center)
-                    jogX=False
-                else: 
-                    matriz[0][2]="O"
-                    player=circulo(ret7.center)
-                    jogX=True
-                mobs.add(player)#SE COLIDIR COM RET 2
-             
-            if ret8.collidepoint(event.pos):
-                if jogX:
-                    matriz[1][2]="X"
-                    player=Player(ret8.center)
-                    jogX=False
-                else: 
-                    matriz[1][2]="O"
-                    player=circulo(ret8.center)
-                    jogX=True
-                mobs.add(player)#SE COLIDIR COM RET 2
+            print(a)
+            tempo=pygame.time.get_ticks()
+            digite=input("digite a resposta")
+            tempo_=pygame.time.get_ticks()
+            tempo_rodada=tempo_-tempo
+            if tempo_rodada>20000:
+                game=False 
+                break
+            if True:
+                #if digite == respostas[b]:
+                print("acertou")
+                if ret1.collidepoint(event.pos):
+                    if jogX:
+                        matriz[0][0]="X"
+                        player=Player(ret1.center)
+                        jogX=False
+                    else: 
+                        matriz[0][0]="O"
+                        player=circulo(ret1.center)
+                        jogX=True
+                    mobs.add(player)
+                if ret2.collidepoint(event.pos):
+                    if jogX:
+                        matriz[1][0]="X"
+                        player=Player(ret2.center)
+                        jogX=False
+                    else: 
+                        matriz[1][0]="O"
+                        player=circulo(ret2.center)
+                        jogX=True
+                    mobs.add(player)
+                if ret3.collidepoint(event.pos): 
+                    if jogX:
+                        matriz[2][0]="X"
+                        player=Player(ret3.center)
+                        jogX=False
+                    else: 
+                        matriz[2][0]="O"
+                        player=circulo(ret3.center)
+                        jogX=True
+                    mobs.add(player)
+                if ret4.collidepoint(event.pos):
+                    if jogX:
+                        matriz[0][1]="X"
+                        player=Player(ret4.center)
+                        jogX=False
+                    else: 
+                        matriz[0][1]="O"
+                        player=circulo(ret4.center)
+                        jogX=True
+                    mobs.add(player)
                 
-            if ret9.collidepoint(event.pos):
-                if jogX:
-                    matriz[2][2]="X"
-                    player=Player(ret9.center)
-                    jogX=False
-                else: 
-                    matriz[2][2]="O"
-                    player=circulo(ret9.center)
-                    jogX=True
-                mobs.add(player)#SE COLIDIR COM RET 2
+                if ret5.collidepoint(event.pos): 
+                    if jogX:
+                        matriz[1][1]="X"
+                        player=Player(ret5.center)
+                        jogX=False
+                    else: 
+                        matriz[1][1]="O"
+                        player=circulo(ret5.center)
+                        jogX=True
+                    mobs.add(player)
            
+                if ret6.collidepoint(event.pos): 
+                    if jogX:
+                        matriz[2][1]="X"
+                        player=Player(ret6.center)
+                        jogX=False
+                    else: 
+                        matriz[2][1]="O"
+                        player=circulo(ret6.center)
+                        jogX=True
+                    mobs.add(player)
+                 
+                if ret7.collidepoint(event.pos):
+                    if jogX:
+                        matriz[0][2]="X"
+                        player=Player(ret7.center)
+                        jogX=False
+                    else: 
+                        matriz[0][2]="O"
+                        player=circulo(ret7.center)
+                        jogX=True
+                    mobs.add(player)
+                 
+                if ret8.collidepoint(event.pos):
+                    if jogX:
+                        matriz[1][2]="X"
+                        player=Player(ret8.center)
+                        jogX=False
+                    else: 
+                        matriz[1][2]="O"
+                        player=circulo(ret8.center)
+                        jogX=True
+                    mobs.add(player)
+                    
+                if ret9.collidepoint(event.pos):
+                    if jogX:
+                        matriz[2][2]="X"
+                        player=Player(ret9.center)
+                        jogX=False
+                    else: 
+                        matriz[2][2]="O"
+                        player=circulo(ret9.center)
+                        jogX=True
+                    mobs.add(player)
+            else:
+                game= False
+                break
+            
+               
 
-     
-
-     
-
+         
     
-    for i in range(3):
-        if(matriz[i][0] == "X" and matriz[i][1] == "X" and matriz[i][2] == "X"):
-            print("GANHOU em linha {}".format(i))
-            game= False
-        if(matriz[0][1] == "X" and matriz[1][i] == "X" and matriz[2][i] == "X"):
-            print("GANHOU em coluna{}".format(i))
-            game= False
-        if(matriz[0][0] == "X" and matriz[1][1] == "X" and matriz[2][2] == "X"):
-            print("GANHOU em diag 1")
-            game=False
-        if(matriz[0][2] == "X" and matriz[1][1] == "X" and matriz[2][0] == "X"):
-            print("GANHOU em diag 2")
-            game=False
+         
     
-    for i in range(3):
-        if(matriz[i][0] == "O" and matriz[i][1] == "O" and matriz[i][2] == "O"):
-            print("PERDEU em linha {}".format(i))
-            game=False
-        if(matriz[0][1] == "O" and matriz[1][i] == "O" and matriz[2][i] == "O"):
-            print("PERDEU em coluna{}".format(i))
-            game=False
-        if(matriz[0][0] == "O" and matriz[1][1] == "O" and matriz[2][2] == "O"):
-            print("PERDEU em diag 1")
-            game=False
-        if(matriz[0][2] == "O" and matriz[1][1] == "O" and matriz[2][0] == "O"):
-            print("PERDEU em diag 2")
-            game=False
-                
+            
+            for i in range(3):
+                if(matriz[i][0] == "X" and matriz[i][1] == "X" and matriz[i][2] == "X"):
+                    print("GANHOU em linha {}".format(i))
+                    game= False
+                if(matriz[0][1] == "X" and matriz[1][i] == "X" and matriz[2][i] == "X"):
+                    print("GANHOU em coluna{}".format(i))
+                    game= False
+                if(matriz[0][0] == "X" and matriz[1][1] == "X" and matriz[2][2] == "X"):
+                    print("GANHOU em diag 1")
+                    game=False
+                if(matriz[0][2] == "X" and matriz[1][1] == "X" and matriz[2][0] == "X"):
+                    print("GANHOU em diag 2")
+                    game=False
+            
+            for i in range(3):
+                if(matriz[i][0] == "O" and matriz[i][1] == "O" and matriz[i][2] == "O"):
+                    print("PERDEU em linha {}".format(i))
+                    game=False
+                if(matriz[0][1] == "O" and matriz[1][i] == "O" and matriz[2][i] == "O"):
+                    print("PERDEU em coluna{}".format(i))
+                    game=False
+                if(matriz[0][0] == "O" and matriz[1][1] == "O" and matriz[2][2] == "O"):
+                    print("PERDEU em diag 1")
+                    game=False
+                if(matriz[0][2] == "O" and matriz[1][1] == "O" and matriz[2][0] == "O"):
+                    print("PERDEU em diag 2")
+                    game=False
                         
-       
-                        
-  
+                            
+           
+                            
+      
+                    
                 
-               # print (event.pos)
-  
-
-    # ----- Gera saídas
+      
+    
+        # ----- Gera saídas
     window.fill((255, 255, 255))  
     window.blit(bg, (0, 0))
     if jogX== True:  
@@ -247,16 +286,16 @@ while game:
     else:
         text = font.render("0", True, (0, 0, 255))
     window.blit(text,(0,0))
-    
+        
     now=pygame.time.get_ticks()
     text2=font.render(str((now-tempo)//1000), True, (0, 0, 255))
     window.blit(text2,(50,0))
-    #pygame.draw.rect(window,(255,0,0),ret3)  #desenha os retangulos
+        #pygame.draw.rect(window,(255,0,0),ret3)  #desenha os retangulos
 
-   
+           
     mobs.draw(window)  #X
     cir.draw(window)  #0
-    # ----- Atualiza estado do jogo
+            # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
 
 # ===== Finalização =====
