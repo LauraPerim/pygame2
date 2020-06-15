@@ -65,7 +65,7 @@ bg=pygame.transform.scale(bg,(500,400)) #posicionamento imagem de fundo
 
 mobs = pygame.sprite.Group() #classe dos X
 
-perguntas=[("Dois pais e dois filhos sentaram-se para comer ovos no café da manhã. Cada um comeu um ovo. Quanto ovos eles comeram no total?"),
+perguntas=[("Dois pais e dois filhos sentaram-se para comer ovos no café da manhã. Cada um comeu um ovo. Quantos ovos eles comeram no total?"),
            ("Ao nascer e ao morrer sou grande, porém sou pequena no vigor da idade. Quem sou eu? "),
            ("O que todo mundo tem, mas quando precisa vai ao mercado comprar? "),
            ("Qual é a cidade que quando chove molha os bêbados? "),
@@ -99,6 +99,14 @@ ret6=pygame.Rect(200,265,130,100)
 ret7=pygame.Rect(341,0,120,100)
 ret8=pygame.Rect(341,123,140,130)
 ret9=pygame.Rect(340,265,130,100)
+
+#Função para sortear posição do CPU:
+
+lista_ret = [ret1, ret2, ret3, ret4, ret5, ret6, ret7, ret8, ret9]
+
+def jogada_cpu(lista_ret):
+    
+    return random.choice(lista_ret)
 
 
                  
@@ -143,7 +151,7 @@ while game:
                         jogX=False
                     else: 
                         matriz[0][0]="O"
-                        player=circulo(ret1.center)
+                        player=circulo(jogada_cpu(lista_ret).center)
                         jogX=True
                     mobs.add(player)
                 if ret2.collidepoint(event.pos):
@@ -153,7 +161,7 @@ while game:
                         jogX=False
                     else: 
                         matriz[1][0]="O"
-                        player=circulo(ret2.center)
+                        player=circulo(jogada_cpu(lista_ret).center)
                         jogX=True
                     mobs.add(player)
                 if ret3.collidepoint(event.pos): 
@@ -163,7 +171,7 @@ while game:
                         jogX=False
                     else: 
                         matriz[2][0]="O"
-                        player=circulo(ret3.center)
+                        player=circulo(jogada_cpu(lista_ret).center)
                         jogX=True
                     mobs.add(player)
                 if ret4.collidepoint(event.pos):
@@ -173,7 +181,7 @@ while game:
                         jogX=False
                     else: 
                         matriz[0][1]="O"
-                        player=circulo(ret4.center)
+                        player=circulo(jogada_cpu(lista_ret).center)
                         jogX=True
                     mobs.add(player)
                 
@@ -184,7 +192,7 @@ while game:
                         jogX=False
                     else: 
                         matriz[1][1]="O"
-                        player=circulo(ret5.center)
+                        player=circulo(jogada_cpu(lista_ret).center)
                         jogX=True
                     mobs.add(player)
            
@@ -195,7 +203,7 @@ while game:
                         jogX=False
                     else: 
                         matriz[2][1]="O"
-                        player=circulo(ret6.center)
+                        player=circulo(jogada_cpu(lista_ret).center)
                         jogX=True
                     mobs.add(player)
                  
@@ -206,7 +214,7 @@ while game:
                         jogX=False
                     else: 
                         matriz[0][2]="O"
-                        player=circulo(ret7.center)
+                        player=circulo(jogada_cpu(lista_ret).center)
                         jogX=True
                     mobs.add(player)
                  
@@ -217,7 +225,7 @@ while game:
                         jogX=False
                     else: 
                         matriz[1][2]="O"
-                        player=circulo(ret8.center)
+                        player=circulo(jogada_cpu(lista_ret).center)
                         jogX=True
                     mobs.add(player)
                     
@@ -228,7 +236,7 @@ while game:
                         jogX=False
                     else: 
                         matriz[2][2]="O"
-                        player=circulo(ret9.center)
+                        player=circulo(jogada_cpu(lista_ret)).center)
                         jogX=True
                     mobs.add(player)
             else:
