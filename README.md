@@ -1,4 +1,4 @@
-# pygame2
+# JOGO DA VELHA COM PERGUNTAS
 
 * ARQUIVO PRINCIPAL: jogo_final.py
 
