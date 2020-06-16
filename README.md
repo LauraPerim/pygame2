@@ -1,5 +1,7 @@
 # pygame2
 
+* Arquivo principal: jogo_final.py
+
 Autores:
 - Laura Perim
 - Pietro Seixas
