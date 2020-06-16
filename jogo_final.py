@@ -349,7 +349,7 @@ while game:
                     print("GANHOU em linha {}".format(i+1))
                     game= False
                 if(matriz[0][1] == "X" and matriz[1][i] == "X" and matriz[2][i] == "X"):
-                    print("GANHOU em coluna{}".format(i))
+                    print("GANHOU em coluna{}".format(i+1))
                     game= False
                 if(matriz[0][0] == "X" and matriz[1][1] == "X" and matriz[2][2] == "X"):
                     print("GANHOU em diag 1")
@@ -360,10 +360,10 @@ while game:
             
             for i in range(3):
                 if(matriz[i][0] == "O" and matriz[i][1] == "O" and matriz[i][2] == "O"):
-                    print("PERDEU em linha {}".format(i))
+                    print("PERDEU em linha {}".format(i+1))
                     game=False
                 if(matriz[0][1] == "O" and matriz[1][i] == "O" and matriz[2][i] == "O"):
-                    print("PERDEU em coluna{}".format(i))
+                    print("PERDEU em coluna{}".format(i+1))
                     game=False
                 if(matriz[0][0] == "O" and matriz[1][1] == "O" and matriz[2][2] == "O"):
                     print("PERDEU em diag 1")
