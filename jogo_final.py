@@ -343,7 +343,7 @@ while game:
     
          
     
-            
+            #Verifica quem ganhou e printa na tela:
             for i in range(3):
                 if(matriz[i][0] == "X" and matriz[i][1] == "X" and matriz[i][2] == "X"):
                     print("GANHOU em linha {}".format(i+1))
@@ -358,6 +358,7 @@ while game:
                     print("GANHOU em diag 2")
                     game=False
             
+            #Verifica quem perdeu e printa na tela:
             for i in range(3):
                 if(matriz[i][0] == "O" and matriz[i][1] == "O" and matriz[i][2] == "O"):
                     print("PERDEU em linha {}".format(i+1))
